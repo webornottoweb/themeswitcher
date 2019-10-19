@@ -1,0 +1,13 @@
+{
+    "name": "wontw/themeswitcher",
+    "authors": [
+        {
+            "name": "Andrey Palamarchuk",
+            "email": "a.palamarchuk@corp.101xp.com"
+        }
+    ],
+    "type": "plugin",
+    "require": {
+        "pikanji/agent-plugin": "^1.0"
+    }
+}
