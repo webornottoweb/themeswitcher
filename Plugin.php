@@ -1,7 +1,7 @@
 <?php namespace Wontw\ThemeSwitcher;
 
-use Backend;
 use System\Classes\PluginBase;
+use Wontw\ThemeSwitcher\Classes\MobileDetectionMiddleware;
 
 /**
  * ThemeSwitcher Plugin Information File
@@ -17,9 +17,9 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'ThemeSwitcher',
-            'description' => 'No description provided yet...',
+            'description' => 'Plugin for automatic octobercms themes switching',
             'author'      => 'Wontw',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-random'
         ];
     }
 
@@ -40,7 +40,8 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-
+        $this->app['Illuminate\Contracts\Http\Kernel']
+            ->pushMiddleware(MobileDetectionMiddleware::class);
     }
 
     /**
@@ -51,10 +52,6 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return []; // Remove this line to activate
-
-        return [
-            'Wontw\ThemeSwitcher\Components\MyComponent' => 'myComponent',
-        ];
     }
 
     /**
@@ -65,13 +62,6 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return []; // Remove this line to activate
-
-        return [
-            'wontw.themeswitcher.some_permission' => [
-                'tab' => 'ThemeSwitcher',
-                'label' => 'Some permission'
-            ],
-        ];
     }
 
     /**
@@ -82,15 +72,5 @@ class Plugin extends PluginBase
     public function registerNavigation()
     {
         return []; // Remove this line to activate
-
-        return [
-            'themeswitcher' => [
-                'label'       => 'ThemeSwitcher',
-                'url'         => Backend::url('wontw/themeswitcher/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['wontw.themeswitcher.*'],
-                'order'       => 500,
-            ],
-        ];
     }
 }
