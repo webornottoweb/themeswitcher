@@ -1,13 +1,15 @@
 {
     "name": "wontw/themeswitcher",
+    "type": "october-plugin",
+    "description": "Allows auto switch OctoberCMS theme based on current user device",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Andrey Palamarchuk",
-            "email": "a.palamarchuk@corp.101xp.com"
+            "name": "Andrey Palamarchuk"
         }
     ],
-    "type": "plugin",
     "require": {
+        "php": ">=5.4",
         "pikanji/agent-plugin": "^1.0"
     }
 }
